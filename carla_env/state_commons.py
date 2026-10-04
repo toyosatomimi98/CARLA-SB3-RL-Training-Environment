@@ -1,10 +1,14 @@
 import torch
-from torchvision import transforms
+
+try:  # torchvision is only needed for the (optional) VAE image path
+    from torchvision import transforms
+except Exception:  # noqa: BLE001 - keep the vector-state path headless-friendly
+    transforms = None
 
 import os
 from vae.models import VAE
 import numpy as np
-import gym
+import gymnasium as gym  # was `gym` (0.22); ported to gymnasium for SB3 >= 2.4
 from config import CONFIG
 
 from vae.utils.misc import LSIZE
@@ -28,6 +32,8 @@ def load_vae(vae_dir, latent_size):
 
 
 def preprocess_frame(frame):
+    if transforms is None:
+        raise RuntimeError("torchvision is required for the VAE image observation path")
     preprocess = transforms.Compose([
         transforms.ToTensor(),
     ])
@@ -90,7 +96,13 @@ def create_encode_state_fn(vae, measurements_to_include):
         if measure_flags[2]: vehicle_measures.append(env.vehicle.get_speed())
         if measure_flags[3]: vehicle_measures.append(env.vehicle.get_angle(env.current_waypoint))
         encoded_state['vehicle_measures'] = vehicle_measures
-        if measure_flags[4]: encoded_state['maneuver'] = env.current_road_maneuver.value
+        if measure_flags[4]:
+            # PORT: RoadOption now includes CHANGELANELEFT/CHANGELANERIGHT (5/6)
+            # and VOID (-1); the observation space is Discrete(4) (used as an
+            # nn.Embedding index by SB3), so out-of-range values must be mapped
+            # back to LANEFOLLOW (0) or CUDA raises "device-side assert".
+            mv = int(env.current_road_maneuver.value)
+            encoded_state['maneuver'] = mv if 0 <= mv <= 3 else 0
 
         if measure_flags[5]:
             next_waypoints_state = env.route_waypoints[env.current_waypoint_index: env.current_waypoint_index + 15]

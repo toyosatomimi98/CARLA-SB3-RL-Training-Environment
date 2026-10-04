@@ -4,9 +4,12 @@ from os.path import join, exists
 import random
 
 import torch
-from torchvision import transforms
+try:  # torchvision only needed for the (optional) VAE image path
+    from torchvision import transforms
+except Exception:  # noqa: BLE001
+    transforms = None
 import numpy as np
-import gym
+import gymnasium as gym  # ported from gym 0.22 -> gymnasium
 import cv2
 from PIL import Image, ImageFilter
 

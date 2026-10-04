@@ -26,6 +26,12 @@ class RoadOption(Enum):
     RIGHT = 2
     STRAIGHT = 3
     VOID = -1
+    # PORT: the global route planner's lane-change links expect these two
+    # options (they are present in the upstream CARLA agents' RoadOption) but
+    # they were missing from this fork's enum, which crashed route setup with
+    # "AttributeError: CHANGELANELEFT".
+    CHANGELANELEFT = 5
+    CHANGELANERIGHT = 6
 
     def __eq__(self, other):
         return self.value == other.value

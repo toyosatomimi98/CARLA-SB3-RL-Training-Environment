@@ -2,7 +2,7 @@ import cv2
 import math
 import json
 
-import gym
+import gymnasium as gym  # ported from gym 0.22 -> gymnasium
 import numpy as np
 import pygame
 from stable_baselines3.common.callbacks import BaseCallback

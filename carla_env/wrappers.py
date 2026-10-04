@@ -360,11 +360,14 @@ class Camera(CarlaActorBase):
 class Vehicle(CarlaActorBase):
     def __init__(self, world, transform=carla.Transform(),
                  on_collision_fn=None, on_invasion_fn=None,
-                 vehicle_type="vehicle.tesla.model3"):
+                 vehicle_type="vehicle.lincoln.mkz"):
         # Setup vehicle blueprint
         vehicle_bp = world.get_blueprint_library().find(vehicle_type)
-        color = vehicle_bp.get_attribute("color").recommended_values[0]
-        vehicle_bp.set_attribute("color", color)
+        # CARLA 0.10 ships fewer blueprints and not every vehicle exposes a
+        # "color" attribute, so only set it when it exists.
+        if vehicle_bp.has_attribute("color"):
+            color = vehicle_bp.get_attribute("color").recommended_values[0]
+            vehicle_bp.set_attribute("color", color)
 
         # Create vehicle actor
         actor = world.spawn_actor(vehicle_bp, transform)
@@ -404,8 +407,10 @@ class Vehicle(CarlaActorBase):
 # ===============================================================================
 
 class World():
-    def __init__(self, client):
-        self.world = client.load_world('Town02')
+    def __init__(self, client, town="Town10HD_Opt"):
+        # CARLA 0.10.0 build shipped locally only contains Town10HD_Opt and
+        # Mine_01 (no Town01/02), so the map is parameterised.
+        self.world = client.load_world(town)
         self.map = self.get_map()
         self.actor_list = []
 
