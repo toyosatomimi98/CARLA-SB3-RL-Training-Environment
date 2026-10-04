@@ -1,0 +1,2 @@
+scenario,shield,verdict,reason,progress_m,tail_speed_kmh,min_gap_m,min_barrier,interventions,note
+cutin,0,FAIL,contact (min_gap 0.00 m),83.5,14.35,0.0,-9.975,0,"cut-in (synthetic): NPC spawns 22 m ahead, 3.0 m to the side of the eg"

@@ -1,0 +1,2 @@
+scenario,shield,verdict,reason,progress_m,tail_speed_kmh,min_gap_m,min_barrier,interventions,note
+cutin,1,PASS,-,34.3,2.77,5.46,-2.051,283,"cut-in (synthetic): NPC spawns 22 m ahead, 3.0 m to the side of the eg"

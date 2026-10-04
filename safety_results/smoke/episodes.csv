@@ -1,0 +1,4 @@
+episode,steps,reward,distance_m,mean_speed_kmh,min_barrier,violation_steps,interventions,intervention_rate,collisions,terminated_as_failure
+0,201,54.0584,56.68,15.134,0.9516,0,46,0.2289,1,1
+0,200,51.9215,56.14,15.068,0.9171,0,43,0.215,0,1
+1,2872,0.0135,0.01,0.0,1.447,0,0,0.0,0,0

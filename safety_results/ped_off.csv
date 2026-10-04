@@ -1,0 +1,2 @@
+scenario,shield,verdict,reason,progress_m,tail_speed_kmh,min_gap_m,min_barrier,interventions,note
+ped_cross,0,FAIL,contact (min_gap 0.00 m),83.6,14.36,0.0,-9.981,0,pedestrian crossing the lane 28 m ahead

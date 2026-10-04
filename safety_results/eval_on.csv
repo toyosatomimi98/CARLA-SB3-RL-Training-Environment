@@ -1,0 +1,4 @@
+episode,shield,min_barrier,violation_steps,interventions,collisions,distance_m,reward,mean_speed_kmh,max_abs_lateral_m
+0,1,1.4495,0,0,0,0.01,0.024,0.0,0.0
+1,1,1.4479,0,0,0,0.03,0.025,0.0,0.002
+2,1,1.4487,0,0,0,0.02,0.047,0.0,0.001
