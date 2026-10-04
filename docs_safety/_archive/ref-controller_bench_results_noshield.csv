@@ -1,0 +1,6 @@
+scenario,shield,verdict,reason,progress_m,tail_speed_kmh,min_gap_m,min_barrier,interventions,note
+roadblock,0,FAIL,collision,43.3,14.71,2.57,-7.358,0,static roadblock 45 m ahead in the ego lane
+lead_brake,0,FAIL,collision,29.3,14.59,4.46,-4.51,0,"lead vehicle 32 m ahead, creeps at 12 km/h then brakes at t=6s"
+crossing,0,PASS,-,85.8,15.16,21.8,0.768,0,crossing vehicle on road 1 (ego route road 1) about 38 m ahead
+ped_cross,0,PASS,-,85.7,15.16,16.95,0.779,0,pedestrian crossing the lane 28 m ahead
+cutin,0,FAIL,contact (min_gap 0.00 m),85.7,15.16,0.0,-9.897,0,cut-in: NPC spawns 22 m ahead in lane 1 and merges into the ego lane (
