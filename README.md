@@ -69,20 +69,20 @@
 
 ## 🎬 效果 demo 关键帧 / Demo keyframes
 
-以下都从 `../demo_keyframes/` 抽帧（原视频在 `../` 与 `safety_results/demo/`，
+以下是**压缩版 JPEG 副本**（放在 `docs/images/demo_keyframes/`，为的是 GitHub 上能直接渲染；原始 PNG 在主仓库 `../demo_keyframes/`，原视频在 `../` 与 `safety_results/demo/`，
 每段自带逐帧遥测 CSV）。**对照类**的上下两半是**同一个 PPO checkpoint、同一 seed / 路线 / 障碍物**，
 唯一差别是**有没有开 CBF 滤波器**。
 
 | 关键帧 | 画面说明了什么 |
 | --- | --- |
-| ![](../demo_keyframes/01_CUTIN_no-shield_contact_vs_CBF_safe.png) | **加塞 cut-in（首推的"一成功一失败"）**：上=无滤波，NPC 切入后踩急刹，**0.00 m 接触**，红条 `*** CONTACT / UNSAFE ***`、min h = −9.93、介入 0；下=有 CBF，减速让行、**0.5 km/h 停住**、min h = +0.18、介入 **124/181**。 |
-| ![](../demo_keyframes/02_ROADBLOCK_no-shield_crash_vs_CBF_stop.png) | **静态路障（前方 45 m）**：上=无滤波**真实碰撞**（min h = −7.60）；下=有 CBF **5.13 m 处停住**并保持到录像结束。 |
-| ![](../demo_keyframes/03_LEADBRAKE_no-shield_crash_vs_CBF_stop.png) | **前车急刹**：上=无滤波**碰撞**（min h = −4.98）；下=有 CBF **保持 5.35 m 停住**。 |
-| ![](../demo_keyframes/04_MAIN_badcmd_offlane_vs_inlane.png) | **注入坏指令**：上=无滤波被带出车道；下=CBF 把动作拉回、**留在车道内**——最能说明"滤波器只改它必须改的那一点"。 |
-| ![](../demo_keyframes/05_TRAFFIC_live_traffic.png) | **动态交通**：Traffic Manager 生成 **14 辆自动驾驶车 + 6 个行人**（同步模式），BEV 与 `gap / TTC` 都能看到车流交互；⚠️ 但默认车流**不主动制造冲突**，这一段开/关滤波几乎没有差别（如实标注，不算滤波器的功劳）。 |
-| ![](../demo_keyframes/06_MAIN_normal_t6.png) | **主视频三帧之一 · 正常行驶（t = 6 s）**：滤波不干预，策略动作原样通过（介入条带全绿）。 |
-| ![](../demo_keyframes/07_MAIN_intervention_t11.png) | **主视频 · 介入中（t = 11 s）**：策略动作越界，滤波器改写它（介入条带转红，HUD 上 `steer (RL)` 与 `steer (safe)` 分离）。 |
-| ![](../demo_keyframes/08_MAIN_recovery_t20.png) | **主视频 · 恢复（t = 20 s）**：车回到走廊内，滤波器把控制权交还给策略。 |
+| ![](docs/images/demo_keyframes/01_CUTIN_no-shield_contact_vs_CBF_safe.jpg) | **加塞 cut-in（首推的"一成功一失败"）**：上=无滤波，NPC 切入后踩急刹，**0.00 m 接触**，红条 `*** CONTACT / UNSAFE ***`、min h = −9.93、介入 0；下=有 CBF，减速让行、**0.5 km/h 停住**、min h = +0.18、介入 **124/181**。 |
+| ![](docs/images/demo_keyframes/02_ROADBLOCK_no-shield_crash_vs_CBF_stop.jpg) | **静态路障（前方 45 m）**：上=无滤波**真实碰撞**（min h = −7.60）；下=有 CBF **5.13 m 处停住**并保持到录像结束。 |
+| ![](docs/images/demo_keyframes/03_LEADBRAKE_no-shield_crash_vs_CBF_stop.jpg) | **前车急刹**：上=无滤波**碰撞**（min h = −4.98）；下=有 CBF **保持 5.35 m 停住**。 |
+| ![](docs/images/demo_keyframes/04_MAIN_badcmd_offlane_vs_inlane.jpg) | **注入坏指令**：上=无滤波被带出车道；下=CBF 把动作拉回、**留在车道内**——最能说明"滤波器只改它必须改的那一点"。 |
+| ![](docs/images/demo_keyframes/05_TRAFFIC_live_traffic.jpg) | **动态交通**：Traffic Manager 生成 **14 辆自动驾驶车 + 6 个行人**（同步模式），BEV 与 `gap / TTC` 都能看到车流交互；⚠️ 但默认车流**不主动制造冲突**，这一段开/关滤波几乎没有差别（如实标注，不算滤波器的功劳）。 |
+| ![](docs/images/demo_keyframes/06_MAIN_normal_t6.jpg) | **主视频三帧之一 · 正常行驶（t = 6 s）**：滤波不干预，策略动作原样通过（介入条带全绿）。 |
+| ![](docs/images/demo_keyframes/07_MAIN_intervention_t11.jpg) | **主视频 · 介入中（t = 11 s）**：策略动作越界，滤波器改写它（介入条带转红，HUD 上 `steer (RL)` 与 `steer (safe)` 分离）。 |
+| ![](docs/images/demo_keyframes/08_MAIN_recovery_t20.jpg) | **主视频 · 恢复（t = 20 s）**：车回到走廊内，滤波器把控制权交还给策略。 |
 
 > HUD 面板从上到下是：**driver view / map BEV（正上方 45 m 俯视）/ DRIVING STATE**（车速、$e_y$、$e_\psi$、曲率、曲率允许车速）
 > / **CONTROL**（策略动作 vs 滤波动作、介入计数）/ **NAVIGATION**（下一机动、路线进度、距终点）
