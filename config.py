@@ -1,4 +1,4 @@
-﻿import torch as th
+import torch as th
 from stable_baselines3.common.noise import NormalActionNoise
 import numpy as np
 from utils import lr_schedule
@@ -455,7 +455,7 @@ CONFIGS["SAFETY_SAC_DRIVE_UNSHIELDED"] = dict(
 # ~zero throttle (a policy that does not move).  Here the reward is ONLY the
 # repo's speed/centering term with early stopping disabled, so the learned mean
 # action actually drives - and precisely because it drives fast the CBF safety
-# filter has real work to do (this is what the homework asks to illustrate).
+# filter has real work to do.
 CONFIGS["SAFETY_PPO_SPEED"] = dict(
     _SAFETY_BASE,
     algorithm="PPO",
@@ -480,9 +480,9 @@ CONFIGS["SAFETY_PPO_ROLL_UNSHIELDED"] = dict(
 )
 
 # ---------------------------------------------------------------------------
-# RL baseline used by the Homework 3 experiments (2026-10-04)
+# RL baseline used by the shielded-vs-unshielded experiments (2026-10-04)
 #
-# Homework 3 is about *safe RL*, so the barrier has to act on a learned policy
+# The point is safe RL, so the barrier has to act on a learned policy
 # rather than on a hand-written controller.  This config fixes the three things
 # that stopped the earlier policies from being usable:
 #

@@ -98,7 +98,7 @@ $$\delta = -\Big(k_\psi\,\psi_e + \arctan\frac{k_y\, e_y}{v}\Big)$$
 
 1. **手里的视频是旧的**：`demo_best_C_ref_seed33.mp4` / `demo_comparison_no_shield_vs_shield.mp4`
    是**修 bug 之前**录的，我一直没重录（只重跑了 benchmark）。这两段已移入
-   `homework3/_INVALID_prefix_videos/`，并**用修正控制器重录**成
+   `_INVALID_prefix_videos/`，并**用修正控制器重录**成
    `demo_best_FIXED_seed33_shield.mp4` 与 `demo_comparison_FIXED_no_shield_vs_shield.mp4`。
    新视频里 HUD 的 `steer (RL)` 是 **−0.35 ~ −0.41（向左修正）**，画面也不再往右偏。
 2. **还有一个脚本漏改**：`tools_safety/probe_scenario.py` 里残留着 `steer = +1.0*ang`

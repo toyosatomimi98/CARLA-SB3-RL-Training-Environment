@@ -1,7 +1,6 @@
 """Draw the design schematic: learned policy -> CBF safety filter -> CARLA.
 
-This is the illustration the assignment asks to submit ("submit this
-illustration"): the closed loop, what the filter solves at every step, and the
+The figure shows the closed loop, what the filter solves at every step, and the
 one-step projection it performs.
 
     python tools_safety/make_schematic.py

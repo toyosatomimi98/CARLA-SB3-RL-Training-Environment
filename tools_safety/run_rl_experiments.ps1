@@ -1,5 +1,5 @@
-# The Homework 3 experiment suite, with the *trained PPO policy* as the action
-# source (the homework is about safe RL, so the barrier has to act on a learned
+# The shielded-vs-unshielded experiment suite, with the *trained PPO policy* as the action
+# source (the point is safe RL, so the barrier has to act on a learned
 # policy rather than on a hand-written controller).
 #
 #   1) same checkpoint, CBF off vs on   -> the controlled comparison

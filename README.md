@@ -7,9 +7,7 @@
 
 本 fork 在上游基础上做了两件事：把它移植到本机唯一可用的 CARLA 0.10.0（UE5.5 / Town10HD_Opt），
 并在策略与仿真器之间加入 CBF（control barrier function）安全滤波器、把 barrier 违反量写进 reward。
-这是 CEG5306 Homework 3 的提交内容。逐条改动见
-[`docs_safety/01-环境审计与移植记录.md`](docs_safety/01-环境审计与移植记录.md)，
-作业视角的总结在上一层 [`../README.md`](../README.md)。
+逐条改动见 [`docs_safety/01-环境审计与移植记录.md`](docs_safety/01-环境审计与移植记录.md)。
 
 上游 README 的安装、配置与训练说明保留在文末「上游功能」一节；文中命令与参数以本 fork 的实际用法为准。
 
@@ -153,7 +151,7 @@ E:\anaconda3\envs\audiobook\python.exe -m venv --system-site-packages venv
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools_safety\run_rl_experiments.ps1
 ```
 
-`--no_rendering_mode` 只在观测里没有图像时可用，本作业的 RL 配置符合该条件；它关闭服务器渲染，
+`--no_rendering_mode` 只在观测里没有图像时可用，本仓库的 RL 配置符合该条件；它关闭服务器渲染，
 训练速度从约 26 步/秒提高到约 45 步/秒。带相机的录视频脚本不要加这个开关。
 
 录像使用 `SAFETY_RL_DEMO`：除关闭训练用的停车终止外，与 `SAFETY_RL` 相同。开滤波后车被正确刹停在
@@ -214,7 +212,4 @@ python carla_env/envs/collect_data_rl_env.py             # 用早期 RL 策略�
 
 * 上游仓库 CARLA-SB3-RL-Training-Environment，作者 Alberto Maté，UC3M 本科毕业论文
   *Application of Deep Reinforcement Learning in autonomous driving*。
-* 本 fork 的移植与 CBF 安全层由 Li Ruiqin（A0356877E）完成，CEG5306 Homework 3，2026-10。
-* 相关交付：上一层 [`../README.md`](../README.md)、`../CEG5306-Homework3-Report.pdf`（英文 7 页报告）、
-  `../CEG5306-Homework3-Report-中文对照.pdf`（逐节中文对照）、`../CEG5306-Homework3-Schematic.png`
-  （设计示意图，报告 Figure 1）、`../CEG5306-Homework3-Framework.png`（算法框架图的入库副本）。
+* 本 fork 的移植与 CBF 安全层由 Li Ruiqin 完成，2026-10。

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="773.28pt" height="502.272pt" viewBox="0 0 773.28 502.272" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="773.28pt" height="459.072pt" viewBox="0 43.2 773.28 459.072" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
@@ -200,7 +200,7 @@ L 102.06 226.7424
 " clip-path="url(#p19a127ed96)" style="fill: none; stroke: #1f4e79; stroke-width: 1.6; stroke-linecap: square"/>
    </g>
    <g id="text_1">
-    <!-- CEG5306 Homework 3 — PPO policy + CBF safety filter closed loop in CARLA -->
+    <!-- figure title (cropped) -->
     <g style="fill: #1f4e79" transform="translate(117.931992 22.797191) scale(0.125 -0.125)">
      <defs>
       <path id="DejaVuSans-Bold-43" d="M 4288 256 

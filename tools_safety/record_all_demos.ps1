@@ -9,7 +9,7 @@
 # experiment.
 #
 # NOTE (2026-10-05): the action source is now the *trained PPO policy* by
-# default, because the homework is about safe RL - the hand-written controller
+# default, because the focus is safe RL - the hand-written controller
 # is a fallback only (`-Policy reference`).
 param(
   [string]$Policy = "rl",     # rl | reference
